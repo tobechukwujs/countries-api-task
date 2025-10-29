@@ -4,8 +4,8 @@
   "description": "Backend task for Country Currency & Exchange API",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+  "start": "npx prisma migrate deploy && node index.js",
+   "dev": "nodemon index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
   },
