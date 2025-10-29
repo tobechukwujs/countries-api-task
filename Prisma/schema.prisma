@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // <--- TO THIS
+  url      = env("DATABASE_URL")
+}
+
+model Country {
+  id                 Int       @id @default(autoincrement())
+  name               String    @unique // Used for case-insensitive lookup
+  capital            String?
+  region             String?
+  population         Int
+  currency_code      String?
+  exchange_rate      Float?
+  estimated_gdp      Float?
+  flag_url           String?
+  last_refreshed_at  DateTime  @updatedAt // Auto timestamp
+}
+
+model ApiStatus {
+  // This table will only ever have one row, with id = 1
+  id                 Int      @id @default(1)
+  total_countries    Int
+  last_refreshed_at  DateTime
+}

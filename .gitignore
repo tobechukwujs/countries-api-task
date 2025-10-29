@@ -1,0 +1,12 @@
+# Dependencies
+/node_modules
+
+# Environment variables
+.env
+
+# Cache
+/cache
+
+# Prisma
+/prisma/dev.db
+/prisma/dev.db-journal
